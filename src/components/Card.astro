@@ -1,0 +1,91 @@
+---
+import { Icon } from 'astro-icon';
+
+export interface Props {
+  picture: string;
+  subtitle: string;
+  description: string;
+  isPrimary?: boolean;
+  isWhite?: boolean;
+  isTransparent?: boolean;
+  isShadowed?: boolean;
+  isIcon?: boolean;
+  isSmall?: boolean;
+  index: number;
+  direction: string;
+}
+
+const {
+  picture,
+  subtitle,
+  description,
+  isPrimary,
+  isWhite,
+  isTransparent,
+  isShadowed = true,
+  isIcon = false,
+  isSmall = true,
+  index = 0,
+  direction,
+} = Astro.props;
+---
+
+<article
+  class={`scrollreveal p-4 m-1 flex flex-col  rounded-3xl transition duration-300 opacity-0
+        ${
+          isSmall
+            ? 'h-[300px] w-[260px]'
+            : 'h-[500PX] w-[310px] md:h-[550PX] md:w-[360px]'
+        }      
+        ${isPrimary && 'bg-emerald-800 shadow-emerald-800/80'}
+        ${isWhite && ' bg-white shadow-gray-50/80'}
+        ${
+          isTransparent &&
+          'bg-transparent shadow-gray-50/5 group hover:bg-emerald-900 hover:shadow-emerald-800/80'
+        }
+        ${
+          isShadowed &&
+          'shadow-[0_0_20px_0px_rgb(0_0_0_/_0.1),_0_4px_6px_-4px_rgb(0_0_0_/_0.1)] '
+        } `}
+  style={`--i:${index}s`}
+  data-to={direction}
+>
+  <header
+    class={`flex-[0.7] flex justify-center items-center overflow-hidden
+                  rounded-xl`}
+  >
+    {
+      isIcon ? (
+        <Icon
+          name={picture}
+          width="80"
+          class=" stroke-emerald-800 bg-emerald-100/50 rounded-xl"
+        />
+      ) : (
+        <img src={picture} alt="Soporte" />
+      )
+    }
+  </header>
+  <div
+    class="flex-1 flex flex-col justify-evenly items-center gap-2 text-center"
+  >
+    <h3
+      class={`text-2xl font-bold 
+      ${isPrimary && 'text-gray-50'} 
+      ${isWhite && 'text-emerald-800'} 
+      ${isTransparent && 'text-gray-50'} 
+      `}
+    >
+      {subtitle}
+    </h3>
+    <p
+      class={`
+      ${isPrimary && 'text-gray-100'} 
+      ${isWhite && 'text-gray-800'} 
+      ${isTransparent && 'text-gray-100'} 
+      ${!isSmall && 'text-lg'}`}
+    >
+      {description}
+    </p>
+  </div>
+</article>

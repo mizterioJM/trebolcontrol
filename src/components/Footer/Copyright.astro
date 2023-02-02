@@ -1,0 +1,15 @@
+---
+---
+
+<div class="w-full p-2 bg-emerald-800 text-center">
+  <p class="text-gray-50 font-semibold">
+    <span id="year"></span> &copy; TREBOL CONTROL S.A.C. TODOS LOS DERECHOS RESERVADOS
+  </p>
+</div>
+
+<script is:inline>
+  const year = document.getElementById('year');
+  const today = new Date();
+
+  year.innerHTML = today.getFullYear();
+</script>

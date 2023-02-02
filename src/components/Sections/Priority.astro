@@ -1,0 +1,57 @@
+---
+import Card from '../Card.astro';
+
+const cards = [
+  {
+    subtitle: 'Soporte',
+    description: 'Obten ayuda cuando lo necesites.',
+    picture: 'headset',
+  },
+  {
+    subtitle: 'Monitoreo',
+    description: 'Seguimiento de tus unidades los 364 dias del año.',
+    picture: 'monitor',
+  },
+  {
+    subtitle: 'Control Total',
+    description: 'Toma decisiones basandote en informacion real.',
+    picture: 'truck',
+  },
+  {
+    subtitle: 'Precio Justo',
+    description:
+      'Si el número de unidades rastreadas cambia, tu cuota mensual cambia.',
+    picture: 'money',
+  },
+];
+---
+
+<section
+  class="snap-start px-2 py-16 lg:px-4 w-full h-full flex flex-col justify-center items-center gap-12 bg-gray-800 text-center"
+>
+  <h2
+    class="scrollreveal w-full max-w-5xl text-3xl md:text-5xl font-semibold text-gray-50 text-center opacity-0"
+    style="--i:.5s"
+    data-to="left"
+  >
+    PORQUE LA SEGURIDAD, GESTION Y EL CUIDADO DE TU BOLSILLO SON NUESTRA
+    PRIORIDAD.
+  </h2>
+  <div
+    class="flex-1 w-full h-full flex flex-wrap justify-center items-center gap-4 xl:gap-8"
+  >
+    {
+      cards.map((card, index) => (
+        <Card
+          picture={card.picture}
+          subtitle={card.subtitle}
+          description={card.description}
+          isWhite={true}
+          isIcon={true}
+          index={(index + 1) * 0.15}
+          direction="top"
+        />
+      ))
+    }
+  </div>
+</section>

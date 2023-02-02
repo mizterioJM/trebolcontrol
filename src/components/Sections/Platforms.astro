@@ -1,0 +1,70 @@
+---
+import Card from '../Card.astro';
+
+const Cards = [
+  {
+    picture: 'img/moto.jpg',
+    subtitle: 'GPS para MOTOS',
+    description:
+      'Equipos para motocicletas, de bajo consumo de energía, protección a intemperie y tamaño reducido.',
+  },
+  {
+    picture: 'img/auto.jpg',
+    subtitle: 'GPS para VEHÍCULOS PARTICULARES',
+    description:
+      'Localizador GPS con todas las funciones básicas, flexible a tus necesidades cuidando tu bolsillo.',
+  },
+  {
+    picture: 'img/flota.jpg',
+    subtitle: 'GPS para CONTROL DE FLOTAS',
+    description:
+      'Localizador diseñado especialmente para monitoreo mas exigentes. alarmas, informes y mantenimientos.',
+  },
+];
+---
+
+<section
+  class="px-2 py-16 lg:px-4 w-full h-full flex flex-col gap-4 bg-gray-800 relative"
+>
+  <div
+    class="py-8 flex flex-col justify-center items-center gap-8 text-center z-10"
+  >
+    <h2
+      class="scrollreveal text-4xl md:text-5xl font-bold text-gray-50 opacity-0"
+      style="--i:.5s"
+      data-to="right"
+    >
+      NUESTRAS PLATAFORMAS
+    </h2>
+    <p
+      class="scrollreveal max-w-3xl text-lg text-gray-100 font-semibold opacity-0 z-10"
+      style="--i:.5s"
+      data-to="left"
+    >
+      Contamos con plataforma web y aplicativo para su dispositivo móvil con
+      sistemas Android, de monitoreo satelital y adaptable de acuerdo a sus
+      necesidades.
+    </p>
+  </div>
+  <div class="flex flex-wrap justify-center items-center gap-4 z-10">
+    {
+      Cards.map(({ picture, subtitle, description }, index) => (
+        <Card
+          picture={picture}
+          subtitle={subtitle}
+          description={description}
+          isIcon={false}
+          isShadowed={true}
+          isSmall={false}
+          isTransparent={true}
+          index={(index + 1) * 0.3}
+          direction="top"
+        />
+      ))
+    }
+  </div>
+  <div
+    class="absolute -top-20 left-0 w-full h-full bg-[url('/img/lines-top.svg')] bg-cover bg-center z-0"
+  >
+  </div>
+</section>

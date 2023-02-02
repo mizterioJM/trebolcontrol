@@ -1,0 +1,28 @@
+---
+import { Image } from '@astrojs/image/components';
+import Button from '../components/Button.astro';
+import Footer from '../components/Footer/Footer.astro';
+import Header from '../components/Header/Header.astro';
+import MainHead from '../layouts/MainHead.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <MainHead title="Pagina NO Encontrada" />
+  <body class="bg-gray-800 tracking-wider grid -z-40 relative">
+    <Header />
+    <main
+      class="w-full h-screen container m-auto flex flex-col justify-center items-center text-center gap-8"
+    >
+      <Image
+        src={import('../assets/404.png')}
+        alt="404 No Encontrada"
+        width={350}
+        format={'avif'}
+      />
+      <h1 class="text-3xl font-bold text-gray-50">Pagina NO Encontrada</h1>
+      <Button text="REGRESAR A INICIO" href="/" />
+    </main>
+    <!-- <Footer /> -->
+  </body>
+</html>

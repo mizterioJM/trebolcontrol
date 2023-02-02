@@ -1,0 +1,28 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import Hamburguer from './Hamburguer.astro';
+import Menu from './Menu.astro';
+---
+
+<nav
+  id="navbar"
+  class="scrollreveal w-full lg:h-[100px] p-2 flex flex-wrap justify-between items-center overflow-hidden z-50 opacity-0"
+  style="--i:2s"
+>
+  <a href="/" class="flex p-1">
+    <Image
+      src="/img/logo.png"
+      alt="Logo Trebol Control"
+      width={230}
+      height={80}
+      quality={80}
+      format={'avif'}
+      class="rounded-xl"
+      fit={'cover'}
+      loading={'lazy'}
+    />
+  </a>
+  <Hamburguer />
+  <Menu />
+</nav>

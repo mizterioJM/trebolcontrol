@@ -1,0 +1,85 @@
+---
+import Card from '../Card.astro';
+
+const Cards = [
+  {
+    picture: 'notification',
+    subtitle: 'Notificaciones',
+    description: 'Recibe notificaciones y alertas a tu celular.',
+  },
+  {
+    picture: 'deliveryTruck',
+    subtitle: 'Control de entregas',
+    description: 'Optimiza el proceso de distribución.',
+  },
+  {
+    picture: 'alert',
+    subtitle: 'Botón de pánico',
+    description:
+      'Al ser presionada manda una alerta de auxilio a nuestra central.',
+  },
+  {
+    picture: 'report',
+    subtitle: 'Reportes',
+    description: 'Genera reportes de las actividades de interés en el día.',
+  },
+  {
+    picture: 'phone',
+    subtitle: 'Aplicativo móbil',
+    description: 'Para mayor control desde cualquier lugar de donde estes.',
+  },
+  {
+    picture: 'truck-off',
+    subtitle: 'Apagado remoto',
+    description:
+      'Apagado del vehículo de manera remota a solicitud del cliente.',
+  },
+  {
+    picture: 'shape',
+    subtitle: 'Geocerca',
+    description:
+      'Creación de zonas o áreas personalizadas a las cuales se les asignara mensajes de alerta de ingreso y/o salida.',
+  },
+  {
+    picture: 'map',
+    subtitle: 'Ubicación en tiempo Real',
+    description:
+      'Visualize el vehículo en tiempo real, con reporte de cada 10 segundos en la plataforma.',
+  },
+];
+---
+
+<section
+  id="services"
+  class="px-2 py-16 lg:px-4 w-full h-full flex flex-col justify-center items-center gap-8 text-center bg-gray-800"
+>
+  <h2
+    class="scrollreveal text-4xl md:text-5xl font-bold text-gray-50 opacity-0"
+    style="--i:.5s"
+    data-to="right"
+  >
+    NUESTROS SERVICIOS
+  </h2>
+  <p
+    class="scrollreveal max-w-2xl text-base text-gray-100 font-semibold opacity-0"
+    style="--i:.5s"
+    data-to="left"
+  >
+    Estos son algunos de los servicios que ofrecemos a nuestros clientes.
+  </p>
+  <div class="w-full h-full flex flex-wrap justify-center items-center gap-8">
+    {
+      Cards.map(({ picture, subtitle, description }, index) => (
+        <Card
+          picture={picture}
+          subtitle={subtitle}
+          description={description}
+          isIcon={true}
+          isWhite={true}
+          index={(index + 1) * 0.2}
+          direction="top"
+        />
+      ))
+    }
+  </div>
+</section>

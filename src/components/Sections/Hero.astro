@@ -1,0 +1,57 @@
+---
+import { Picture } from '@astrojs/image/components';
+
+import Video from '../Video.astro';
+import Button from '../Button.astro';
+import ButtonOutlet from '../ButtonOutlet.astro';
+---
+
+<section
+  id="home"
+  class="relative pt-[100px] w-full h-screen md:h-[90vh] min-h-[800px] max-h-[900px] xl:max-h-[800px] overflow-hidden after:absolute after:top-0 after:left-0 after:w-full after:h-[300px] after:bg-gradient-to-b after:from-gray-800 after:to-transparent before:absolute before:bottom-0 before:left-0 before:w-full before:h-[100px] before:bg-gradient-to-t before:from-gray-800 before:to-transparent"
+>
+  <div
+    class="p-5 lg:p-14 w-full h-full flex flex-col-reverse justify-center items-center md:flex-row gap-8 z-10"
+  >
+    <div
+      class="scrollreveal flex-1 w-full h-full flex justify-center items-center opacity-0 z-10"
+      style="--i:2.5s;"
+    >
+      <Picture
+        src={import('../../../public/img/phone-monit.png')}
+        alt={'Dispositivos disponibles'}
+        widths={[500, 600, 800]}
+        sizes="(max-width: 600px) 100vw, 600px"
+        format={'avif'}
+        quality={100}
+        class="flex drop-shadow-[0_0px_20px_rgba(255,255,255,.5)]"
+      />
+    </div>
+    <div
+      class="scrollreveal w-full flex-1 flex flex-col justify-center items-baseline gap-8 text-left z-10 opacity-0"
+      style="--i:2.5s;"
+    >
+      <h1
+        class="text-6xl md:text-7xl lg:text-8xl font-bold text-gray-50 [text-shadow:_4px_4px_2px_rgba(0,0,0,0.5);]"
+      >
+        TOMA EL CONTROL.
+      </h1>
+      <p
+        class="text-xl lg:text-2xl text-gray-200 [text-shadow:_4px_4px_2px_rgba(0,0,0,0.3);]"
+      >
+        Monitorea tus unidades vehículares desde donde quiera que te encuentres
+        a nivel nacional e internacional.
+      </p>
+      <div class="w-full flex justify-center items-center flex-wrap gap-5">
+        <Button text="Cotizar Servicio" href="#quote" />
+        <ButtonOutlet
+          text="Renovar Servicio"
+          isRoundedLeft={false}
+          isPrimary={false}
+          href="#"
+        />
+      </div>
+    </div>
+  </div>
+  <Video />
+</section>

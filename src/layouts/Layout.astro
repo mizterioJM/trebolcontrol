@@ -1,0 +1,25 @@
+---
+import MainHead from './MainHead.astro';
+import Header from '../components/Header/Header.astro';
+import Footer from '../components/Footer/Footer.astro';
+import ButtonFab from '../components/ButtonFab.astro';
+
+const {
+  title = 'Trebol Control | Rastreo satelital por GPS.',
+  description = 'Trebol Control prestamos servicios para el control de flotas mejorando los procesos administrativos, operativos y logisticos de nuestros clientes.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-12">
+  <MainHead {title} {description} />
+  <body class="bg-gray-800 tracking-wider grid -z-40 relative">
+    <Header />
+    <slot />
+    <Footer />
+    <ButtonFab />
+    <script type="module" hoist>
+      import '../scripts/main.js';
+    </script>
+  </body>
+</html>

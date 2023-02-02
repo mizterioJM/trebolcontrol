@@ -1,0 +1,30 @@
+---
+export interface Props {
+  text?: string;
+  href?: string;
+  isRoundedLeft?: boolean;
+  isPrimary?: boolean;
+  isFullWidth?: boolean;
+  target?: string;
+}
+
+const {
+  text,
+  href,
+  isRoundedLeft = true,
+  isPrimary = true,
+  target = '_self',
+} = Astro.props;
+---
+
+<a
+  href={href}
+  target={target}
+  class={`px-8 py-3 font-bold bg-transparent border-2 ring-gray-50 hover:ring-2 transition-all rounded-t-2xl w-full lg:w-auto text-center
+  ${
+    isPrimary
+      ? 'text-emerald-800 border-emerald-800'
+      : 'text-gray-50 border-gray-50'
+  } 
+  ${isRoundedLeft ? 'rounded-bl-2xl' : 'rounded-br-2xl'}`}>{text}</a
+>

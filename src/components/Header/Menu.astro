@@ -1,0 +1,65 @@
+---
+import Button from '../Button.astro';
+import { Icon } from 'astro-icon';
+
+const Links = [
+  { name: 'Inicio', href: '#home' },
+  { name: 'Nosotros', href: '#about' },
+  { name: 'Servicios', href: '#services' },
+  { name: 'Contactanos', href: '#contact' },
+  { name: 'Proceso', href: '#promotion' },
+];
+---
+
+<ul
+  id="menu"
+  class="p-0 w-full h-0 lg:w-auto flex flex-col gap-1 justify-start items-stretch lg:h-auto transition-all duration-700 overflow-hidden lg:flex-row lg:bg-transparent rounded-b-3xl lg:rounded-none peer-[[data-expanded='true']]/btn:h-[540px] peer-[[data-expanded='true']]/btn:p-1"
+>
+  {
+    Links.map((link) => (
+      <li class="m-1 flex justify-center items-center">
+        <a
+          href={link.href}
+          class="item p-2 text-gray-50  font-bold hover:text-emerald-500 uppercase lg:capitalize lg:font-semibold">
+          {link.name}
+        </a>
+      </li>
+    ))
+  }
+  <li
+    class="px-1 py-2 flex flex-col justify-center items-center lg:hidden gap-2 border-t-[1px] border-gray-300"
+  >
+    <p class="font-bold text-gray-50">ATENCIÓN AL CLIENTE:</p>
+    <div class="flex gap-3">
+      <div class="flex">
+        <Icon name="whatsapp" width="40" class="stroke-gray-50" />
+        <span
+          class="flex justify-center items-center text-gray-100 font-semibold after:content-['+51_997286184'] after:flex"
+        ></span>
+      </div>
+      <div class="flex">
+        <Icon name="whatsapp" width="40" class="stroke-gray-50" />
+        <span
+          class="flex justify-center items-center text-gray-100 font-semibold after:content-['+51_949777366'] after:flex"
+        ></span>
+      </div>
+    </div>
+  </li>
+
+  <li
+    class="p-2 flex flex-col justify-center items-center lg:hidden gap-2 border-b-[1px] border-gray-300"
+  >
+    <p class="font-bold text-gray-50">CORREO:</p>
+    <div class="flex gap-2">
+      <Icon name="mail" width="40" class="stroke-gray-50" />
+      <span
+        id="correo"
+        class="flex justify-center items-center text-gray-100 font-semibold after:content-['trebolcontrol@trebolcontrol.com'] after:block"
+      ></span>
+    </div>
+  </li>
+
+  <li class="m-2 flex justify-center items-center">
+    <Button text="PLATAFORMA" href="/" isRoundedLeft={false} target="_blank" />
+  </li>
+</ul>

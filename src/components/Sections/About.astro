@@ -1,0 +1,51 @@
+---
+import { Picture } from '@astrojs/image/components';
+---
+
+<section
+  id="about"
+  class="relative px-4 py-16 lg:px-16 w-full h-full min-h-[700px] flex flex-wrap flex-col lg:flex-row gap-8 bg-gray-800 overflow-hidden bg-[url('/img/lines.svg')] bg-cover bg-center"
+>
+  <div
+    class="scrollreveal flex-[0.8] flex flex-col justify-center gap-4 opacity-0"
+    style="--i:.5s"
+    data-to="right"
+  >
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-50">
+      ACERCA DE <br /> TREBOL CONTROL
+    </h2>
+    <hr class="m-1 block" />
+    <p class="m-4 max-w-2xl text-lg text-gray-100 font-semibold">
+      TREBOL CONTROL es una empresa recientemente creada por decisión de dos
+      jovenes emprendedores enfocados en generar productos tecnologicos para la
+      mejora de procesos administrativos, operativos y logísticos de nuestros
+      clientes.
+    </p>
+    <p class="mx-4 max-w-2xl text-lg text-gray-100 font-semibold">
+      Nuestro moderno sistema de localizacion y rastreo por GPS nos permite
+      ofrecer la administracion logistica de flotas vehículares, optimizar los
+      recursos operacionales, eficiencia y el control del personal.
+    </p>
+  </div>
+  <picture
+    class="scrollreveal flex-1 w-full relative flex justify-center items-end after:absolute after:-bottom-6 after:left-0 after:w-[150%] after:h-[190px] after:bg-[url('./img/wave.svg')] after:bg-cover after:bg-no-repeat after:bg-bottom overflow-hidden opacity-0"
+    style="--i:.5s"
+    data-to="left"
+  >
+    <Picture
+      src={import('../../../public/img/about.png')}
+      alt={'Equipo de trabajo'}
+      widths={[500, 600, 800]}
+      sizes="(max-width: 600px) 100vw, 600px"
+      format={'avif'}
+      quality={100}
+      class="flex-1 flex drop-shadow-[0_0px_10px_rgba(255,255,255,.5)]"
+    />
+    <p
+      class="absolute top-0 lg:top-16 left-0 lg:left-8 px-1 flex bg-emerald-900 text-gray-50 text-sm"
+    >
+      <span class="p-1 mr-2 bg-gray-800 w-2 h-6 block"></span>
+      Protección adecuada, momento adecuado.
+    </p>
+  </picture>
+</section>
