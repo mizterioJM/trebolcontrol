@@ -10,10 +10,73 @@ const {
 } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<style lang="css">
+  @keyframes fadeIn {
+    0% {
+      filter: blur(2px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInToBottom {
+    0% {
+      transform: translate(0px, -100px);
+      filter: blur(2px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInToTop {
+    0% {
+      transform: translate(0px, 100px);
+      filter: blur(1px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInToRight {
+    0% {
+      transform: translate(-150px, 0px);
+      filter: blur(1px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes fadeInToLeft {
+    0% {
+      transform: translate(150px, 0px);
+      filter: blur(1px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+</style>
+
 <html lang="en" class="scroll-smooth scroll-pt-12">
   <MainHead {title} {description} />
-  <body class="bg-gray-800 tracking-wider grid -z-40 relative">
+  <body class="bg-gray-800 tracking-wider grid -z-40 relative font-Nunito">
     <Header />
     <slot />
     <Footer />

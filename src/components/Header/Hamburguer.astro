@@ -1,33 +1,40 @@
 ---
 ---
 
+<style lang="css">
+  .line {
+    transform-origin: center;
+    transition: transform 300ms 300ms ease-in-out, rotate 300ms ease-in-out,
+      opacity 0ms 300ms;
+  }
+
+  .btn-hamburger[data-expanded='true'] .line {
+    transition: transform 300ms ease-in-out, rotate 300ms 300ms ease-in-out,
+      opacity 0ms 300ms;
+  }
+
+  .btn-hamburger[data-expanded='true'] .line:first-child {
+    transform: translate(0, 20%);
+    rotate: 45deg;
+  }
+  .btn-hamburger[data-expanded='true'] .line:last-child {
+    transform: translate(0, -20%);
+    rotate: -45deg;
+  }
+
+  .btn-hamburger[data-expanded='true'] .line:nth-child(2) {
+    opacity: 0;
+  }
+</style>
 <button
   class="btn-hamburger group/btn peer/btn cursor-pointer lg:hidden"
   data-expanded="false"
   type="button"
 >
   <svg class="fill-gray-50" viewBox="0 0 100 100" width="60">
-    <rect
-      class="origin-center transition-r-ot-delay group-[[data-expanded='true']]/btn:transition-t-or-delay group-[[data-expanded='true']]/btn:translate-y-[20%] group-[[data-expanded='true']]/btn:[rotate:45deg]"
-      width="80"
-      height="10"
-      x="10"
-      y="25"
-      rx="5"></rect>
-    <rect
-      class="origin-center transition-r-ot-delay group-[[data-expanded='true']]:transition-t-or-delay group-[[data-expanded='true']]/btn:opacity-0"
-      width="80"
-      height="10"
-      x="10"
-      y="45"
-      rx="5"></rect>
-    <rect
-      class="origin-center transition-r-ot-delay group-[[data-expanded='true']]/btn:transition-t-or-delay group-[[data-expanded='true']]/btn:-translate-y-[20%] group-[[data-expanded='true']]/btn:[rotate:-45deg]"
-      width="80"
-      height="10"
-      x="10"
-      y="65"
-      rx="5"></rect>
+    <rect class="line" width="80" height="10" x="10" y="25" rx="5"></rect>
+    <rect class="line" width="80" height="10" x="10" y="45" rx="5"></rect>
+    <rect class="line" width="80" height="10" x="10" y="65" rx="5"></rect>
   </svg>
 </button>
 
