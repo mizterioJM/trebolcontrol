@@ -8,12 +8,13 @@ import { Icon } from 'astro-icon';
   <div
     class="flex-1 bg-emerald-900 flex flex-col justify-center items-center relative z-10"
   >
-    <figure
-      class="w-full h-full flex justify-center bg-[url('/img/development.jpg')] bg-cover relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:backdrop-blur-sm overflow-hidden"
+    <picture
+      class="w-full h-full flex justify-center bg-[url('/img/development-small.jpg')] md:bg-[url('/img/development.jpg')] bg-cover relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:backdrop-blur-sm overflow-hidden"
     >
+      <source media="(max-width:767px)" srcset="/img/hand-phone-small.png" />
       <img
         class="scrollreveal max-h-[500px] z-10 translate-y-6 opacity-0"
-        src="img/hand-phone.png"
+        src="/img/hand-phone.png"
         srcset="img/hand-phone.png"
         decoding="async"
         loading="lazy"
@@ -21,7 +22,7 @@ import { Icon } from 'astro-icon';
         style="--i:.5s"
         data-to="right"
       />
-    </figure>
+    </picture>
     <div
       class="scrollreveal px-8 flex justify-evenly md:justify-center md:gap-8 items-center bg-emerald-800 absolute -bottom-12 z-10 rounded-3xl opacity-0"
       style="--i:.5s"
